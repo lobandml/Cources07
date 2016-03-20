@@ -8,7 +8,12 @@ namespace Cources07
     class Program
     {
         static void Main(string[] args)
-        {f
+        {
+            Tasks.Task1();
+            Tasks.Task2();
+            Tasks.Task3();
+
+                Console.ReadKey();
         }
     }
 }
