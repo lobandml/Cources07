@@ -8,9 +8,11 @@ namespace Cources07
      class Tasks
     {
         delegate double Average(int number1, int number2,int number3);
-        delegate double DelegateAverage(Delegate[] dels);
+        delegate double RND();
+        delegate double DelegateAverage(RND[] dels);
 
         delegate double SomeMethod(double first, double second);
+        
 
         public static void Task1()
         {
@@ -52,15 +54,27 @@ namespace Cources07
         }
         public static void Task3()
         {
-            DelegateAverage avg = delegate(Delegate[] dels)
+            DelegateAverage avg = delegate(RND[] dels)
             {
                 double result = 0;
                 for (int i = 0; i < dels.Length; i++)
                 {
-                    result += dels[i].;
+                    result += dels[i]();
                 }
-                return 1;
+                return result;
             };
+
+            RND[] ddd = new RND[3];
+            Random randomgen=new Random();
+            
+            ddd[0] = delegate()
+            {
+                return randomgen.NextDouble(); //randov value
+            };
+            ddd[1] = ddd[0];
+            ddd[2]=ddd[1];
+
+            Console.WriteLine(avg(ddd));
         }
     }
 }
